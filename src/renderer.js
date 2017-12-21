@@ -1,5 +1,3 @@
-const { getBoundingClientRect } = require('./layout-helpers');
-
 exports.render = function render(context, node) {
     context.clearRect(0, 0, context.canvas.width, context.canvas.height);
     context.save();
@@ -11,7 +9,7 @@ exports.render = function render(context, node) {
 }
 
 function renderNode(context, node) {
-    const { top, left, width, height } = getBoundingClientRect(node);
+    const { top, left, width, height } = node.getComputedLayout();
 
     context.strokeRect(top, left, width, height);
 
